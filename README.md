@@ -57,7 +57,7 @@ Check out the live previews below:
 * **Framework**: Next.js (App Router, Client Components)
 * **Styling**: Tailwind CSS
 * **Data Fetching**: Fetch API for calls to custom Next.js API routes
-* **Geocoding & Weather**: Custom `/api/reverse_geocode` and `/api/weather_forecast_data` routes (integrate your preferred third-party APIs)
+* **Geocoding & Weather**: Custom `/api/reverse_geocode` and `/api/weather_forecast_data` routes
 
 ## Getting Started
 
