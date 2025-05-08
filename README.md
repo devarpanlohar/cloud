@@ -1,6 +1,6 @@
 <p align="center">
   <img 
-    src="https://capsule-render.vercel.app/api?type=slice&height=300&color=gradient&text=Cloud&fontSize=70&desc=Cloudt:%20A%20sleek,%20responsive%20Next.js%20weather%20app%20with%20real-time%20forecasts%20and%20dynamic%20background%20videos%20matching%20current%20conditions.&descSize=20&descAlignY=60"
+    src="https://capsule-render.vercel.app/api?type=slice&height=300&color=gradient&text=Cloud&fontSize=70&animation=fadeIn&desc=Cloud:%20A%20stylish%20weather%20app%20with%20live%20forecasts%20and%20dynamic%20backgrounds.&fontAlignY=42"
     alt="Cloud Weather Web App Banner"
     style="max-width: 100%; height: auto;"
   />
