@@ -30,8 +30,6 @@ A sleek, responsive weather web app built with Next.js that delivers real-time w
 * **Light/Dark Mode**: Automatic theme adjustments for readability in any lighting.
 * **Cache Busting**: Prevent stale weather data with on-demand cache-busting query parameters.
 
----
-
 ## **Live Preview**  
 
 🌦️ **A Fully Responsive Weather Web App** – Works seamlessly on **both desktop and mobile devices!**  
