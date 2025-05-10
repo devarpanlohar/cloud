@@ -9,6 +9,23 @@ function getGreeting() {
   return "🌙 Good evening, Chief.";
 }
 
+function getEllaQuote() {
+  const quotes = [
+    "🧠 All systems nominal, Chief.",
+    "🔧 I’ve taken the liberty to tidy up the logs.",
+    "📡 Awaiting further instructions, sir.",
+    "🛰️ Shall I prepare the next protocol?",
+    "🧪 Compiling diagnostics for your perusal.",
+    "⚙️ Another step closer to world domination, Chief.",
+    "📊 Your repository is in excellent health.",
+    "🕹️ Let me know if you'd like a deeper analysis.",
+    "🤖 Sir, I suggest reviewing this anomaly at your earliest convenience.",
+    "🚨 Minor irregularity detected—but nothing I can’t handle.",
+  ];
+
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
+
 export async function POST(req) {
   const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = process.env;
   const event = req.headers.get("x-github-event");
@@ -73,6 +90,7 @@ export async function POST(req) {
     }
 
     // Add a classy footer
+    message += `\n\n💬 <i>${getEllaQuote()}</i>`;
     message += `\n\n🏠 <b>Repository:</b> <a href="${payload.repository.html_url}">${payload.repository.full_name}</a>`;
     message += `\n\n🕹️ <i>ELLA at your service.</i>`;
 
