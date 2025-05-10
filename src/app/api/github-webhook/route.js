@@ -1,12 +1,21 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
 
+// Utility to generate a JARVIS-style greeting based on time of day
+function getGreeting() {
+  const hour = new Date().getHours();
+  if (hour < 12) return "☀️ Good morning, Chief.";
+  if (hour < 18) return "🌤️ Good afternoon, Chief.";
+  return "🌙 Good evening, Chief.";
+}
+
 export async function POST(req) {
   const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = process.env;
   const event = req.headers.get("x-github-event");
   const payload = await req.json();
 
-  let message = `🗂️ <b>GitHub Event:</b> ${event}\n\n`;
+  let message = `${getGreeting()}\n\n🧠 <b>Status Update from your ELLA Bot</b>\n\n`;
+  message += `🗂️ <b>GitHub Event:</b> ${event}\n\n`;
 
   try {
     switch (event) {
@@ -23,6 +32,7 @@ export async function POST(req) {
         message += `✍️ <b>Title:</b> ${payload.issue.title}\n`;
         message += `👤 <b>By:</b> ${payload.sender.login}\n`;
         message += `🔗 <a href="${payload.issue.html_url}">View Issue</a>\n`;
+        message += `\n⚠️ Recommendation: You might want to look at this, sir.`;
         break;
 
       case "fork":
@@ -46,6 +56,7 @@ export async function POST(req) {
         message += `🏷️ <b>Environment:</b> ${payload.deployment.environment}\n`;
         message += `👤 <b>By:</b> ${payload.deployment.creator.login}\n`;
         message += `🔗 <a href="${payload.repository.html_url}/commit/${payload.deployment.sha}">View Commit</a>\n`;
+        message += `\n🧪 Initiating post-deployment diagnostics...`;
         break;
 
       case "deployment_status":
@@ -53,15 +64,17 @@ export async function POST(req) {
         message += `🏷️ <b>Environment:</b> ${payload.deployment.environment}\n`;
         message += `📊 <b>Status:</b> ${payload.deployment_status.state}\n`;
         message += `📝 <b>Description:</b> ${payload.deployment_status.description || "No description"}\n`;
+        message += `\n🔧 Monitoring status, Chief.`;
         break;
 
       default:
         message += `ℹ️ Unhandled event type: ${event}\n`;
-        message += `🔍 Check webhook payload for details`;
+        message += `🔍 Please check the payload for more insights, sir.`;
     }
 
-    // Add common footer
+    // Add a classy footer
     message += `\n\n🏠 <b>Repository:</b> <a href="${payload.repository.html_url}">${payload.repository.full_name}</a>`;
+    message += `\n\n🕹️ <i>ELLA at your service.</i>`;
 
     await axios.post(
       `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
