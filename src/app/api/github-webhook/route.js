@@ -1,9 +1,10 @@
-const axios = require("axios");
+import { NextResponse } from "next/server";
+import axios from "axios";
 
-module.exports = async (req, res) => {
+export async function POST(req) {
   const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = process.env;
-  const event = req.headers["x-github-event"];
-  const payload = req.body;
+  const event = req.headers.get("x-github-event");
+  const payload = await req.json();
 
   let message = `📦 GitHub Event: ${event}\n`;
   if (event === "push") {
@@ -22,5 +23,5 @@ module.exports = async (req, res) => {
     }
   );
 
-  res.status(200).send("OK");
-};
+  return NextResponse.json({ status: "ok" });
+}

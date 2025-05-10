@@ -1,8 +1,9 @@
-const axios = require("axios");
+import { NextResponse } from "next/server";
+import axios from "axios";
 
-module.exports = async (req, res) => {
+export async function POST(req) {
   const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID } = process.env;
-  const { payload } = req.body;
+  const { payload } = await req.json();
 
   const message =
     `🚀 Vercel Deployment\n` +
@@ -18,5 +19,5 @@ module.exports = async (req, res) => {
     }
   );
 
-  res.status(200).send("OK");
-};
+  return NextResponse.json({ status: "ok" });
+}
