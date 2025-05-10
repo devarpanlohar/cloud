@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [{ "src": "api/*.js", "use": "@vercel/node" }],
   "routes": [
-    { "src": "/github-webhook", "dest": "/api/github-webhook.js" },
-    { "src": "/vercel-deploy", "dest": "/api/vercel-deploy.js" }
+    { "src": "/github-webhook", "dest": "/src/app/api/github-webhook.js" },
+    { "src": "/vercel-deploy", "dest": "/src/app/api/vercel-deploy.js" }
   ]
 }
