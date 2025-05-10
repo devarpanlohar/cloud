@@ -8,7 +8,7 @@
 
 # Cloud
 
-[click here to visit the live page.](https://cloud-liart-three.vercel.app/)
+[Click here to visit the live page.](https://cloud-liart-three.vercel.app/)
 
 A sleek, responsive weather web app built with Next.js that delivers real-time weather forecasts and immersive background videos based on current conditions.
 
