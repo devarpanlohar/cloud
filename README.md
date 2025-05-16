@@ -10,16 +10,16 @@
 
 [Click here](https://cloud-liart-three.vercel.app/) to visit the live page.
 
-A sleek, responsive weather web app built with Next.js that delivers real-time weather forecasts and immersive background videos based on current conditions.
+A sophisticated weather web app with real-time notifications, built with Next.js. Features immersive weather forecasts and Telegram integration for deployment alerts and GitHub event tracking.
 
 ## Table of Contents
 
 - [Cloud](#cloud)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
-  - [**Live Preview**](#live-preview)
-    - [**Desktop View**](#desktop-view)
-    - [**Mobile View**](#mobile-view)
+  - [Live Preview](#live-preview)
+    - [Desktop View](#desktop-view)
+    - [Mobile View](#mobile-view)
   - [Tech Stack](#tech-stack)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
@@ -33,133 +33,162 @@ A sleek, responsive weather web app built with Next.js that delivers real-time w
 
 ## Features
 
-* **Search by Location**: Enter any city or address to fetch current weather and a 7-day forecast.
-* **Geolocation**: Detect your current location with one click for instant weather data.
-* **Dynamic Backgrounds**: Enjoy immersive full-screen video backgrounds that change based on weather conditions (rain, snow, clear sky, clouds, etc.).
-* **Responsive Design**: Mobile-first layout with Tailwind CSS ensures a great experience on any device.
-* **Light/Dark Mode**: Automatic theme adjustments for readability in any lighting.
-* **Cache Busting**: Prevent stale weather data with on-demand cache-busting query parameters.
+* **Real-time Notifications**: Telegram integration for deployment alerts and GitHub event tracking
+* **Smart Webhooks**: Automatic notifications for pushes, issues, PRs, forks, and deployments
+* **Search by Location**: Enter any city or address to fetch current weather and 7-day forecast
+* **Geolocation**: Detect current location with one click for instant weather data
+* **Dynamic Backgrounds**: Full-screen video backgrounds synced with weather conditions
+* **AI-Powered Status**: JARVIS-style greetings and contextual system messages
+* **Responsive Design**: Mobile-first layout with Tailwind CSS
+* **Cache Management**: Smart cache busting and 1-hour API data revalidation
 
-## **Live Preview**  
+## **Live Preview**
 
-🌦️ **A Fully Responsive Weather Web App** – Works seamlessly on **both desktop and mobile devices!**  
-
-Check out the live previews below:  
+🌩️ **Now with Real-time System Alerts** - Get Telegram notifications for all critical system events!
 
 ### **Desktop View**  
 > ![Desktop Demo GIF](https://raw.githubusercontent.com/devarpanlohar/cloud/main/public/desktop_view.gif)  
-*Sleek, interactive interface optimized for larger screens with dynamic weather data visualization.*  
+*Now featuring deployment status updates and GitHub event tracking in the notification panel*
 
 ### **Mobile View**  
 > ![Mobile Demo GIF](https://raw.githubusercontent.com/devarpanlohar/cloud/main/public/mobile_view.gif)  
-*Clean, touch-friendly design with smooth animations, perfect for on-the-go weather updates.*
+*Instant Telegram alerts directly to your mobile device for all system events*
 
 ## Tech Stack
 
 * **Framework**: Next.js (App Router, Client Components)
+* **Notifications**: Telegram Bot API
 * **Styling**: Tailwind CSS
-* **Data Fetching**: Fetch API for calls to custom Next.js API routes
-* **Geocoding & Weather**: Custom `/api/reverse_geocode` and `/api/weather_forecast_data` routes
+* **APIs**: 
+  - Weather API
+  - OpenStreetMap Nominatim
+  - GitHub Webhooks
+* **Utilities**: Axios for HTTP requests
 
 ## Getting Started
 
 ### Prerequisites
 
-* Node.js (v16 or higher)
-* npm or Yarn or pnpm or Bun
+* Node.js (v18 or higher)
+* Telegram bot token (get from [@BotFather](https://t.me/BotFather))
+* GitHub webhook configured for your repository
 
 ### Installation
 
 1. Clone the repository:
-
    ```bash
    git clone https://github.com/devarpanlohar/cloud.git
    cd cloud
    ```
 
 2. Install dependencies:
-
    ```bash
    npm install
-   # or yarn
-   # or pnpm install
-   # or bun install
    ```
 
-3. Add environment variables:
-   Create a `.env` file in the root directory and configure your API keys (see below).
+3. Configure environment variables (see below)
 
-4. Start the development server:
-
+4. Start development server:
    ```bash
    npm run dev
-   # or yarn dev
-   # or pnpm dev
-   # or bun dev
    ```
-
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Environment Variables
 
-Rename `.env.local.example` to `.env` and provide the following keys:
-
+`.env.local` file requirements:
 ```bash
-# Geocoding (reverse geocode) API key
-GEOCODE_API_KEY=your_geocode_service_key
-
-# Weather forecast API key
+# Core Services
 WEATHER_API_KEY=your_weather_service_key
 
-# Optional: Override default cache duration (in seconds)
-CACHE_TTL=300
+# Telegram Integration
+TELEGRAM_BOT_TOKEN=your_bot_token
+TELEGRAM_CHAT_ID=your_chat_id
+
+# Optional
+CACHE_TTL=300  # Cache duration in seconds
 ```
+Change the `.env.local.example` to `.env.local`
 
 ## Usage
 
-1. **Search**: Enter a city name (e.g., "New York") or address and click **Get Weather**.
-2. **Detect Location**: Click the geolocation button to auto-detect coordinates and fetch weather.
-3. **Clear**: Reset the form and clear existing data.
-4. **Enjoy**: Watch the background video change to match current weather!
+1. **Weather Interface**:
+   - Search locations or detect automatically
+   - Clear data with one click
+   - Watch background adapt to conditions
+
+2. **Notification System**:
+   - Receive Telegram alerts for:
+     - Successful deployments
+     - GitHub pushes/PRs/issues
+     - Deployment status changes
+     - Repository forks
+   - Context-aware messages with:
+     - Time-based greetings
+     - System health updates
+     - Interactive links
+
+3. **Webhook Management**:
+   - Configure GitHub and Vercel webhooks to:
+     - POST to `/api/github-webhook` for repository events
+     - POST to `/api/vercel-deploy` for deployment alerts
 
 ## Project Structure
 
 ```
-├── public
-│   ├── weather-backgrounds/   # Video clips mapped to weather conditions
-│   └── weather-icons/         # PNG icons for conditions
-├── src
-│   ├── app
-│   │   ├── page.jsx           # Main weather component (client)
-│   │   └── layout.jsx         # Global layout and providers
-│   ├── components             # Reusable UI components
-│   ├── styles                 # Tailwind and global styles
-│   └── pages
-│       ├── api
-│       │   ├── reverse_geocode.js
-│       │   └── weather_forecast_data.js
-├── .env
-├── next.config.js
-├── tailwind.config.js
-├── package.json
-└── README.md
+cloud
+└── public/
+    ├── weather-backgrounds/   # Condition-based videos
+    ├── weather-icons/         # Visual indicators
+    ├── src/
+    │   └── app/
+    │       ├── api/
+    │       │   ├── github-webhook/
+    │       │   │   └── route.js
+    │       │   ├── reverse_geocode/
+    │       │   │   └── route.js
+    │       │   ├── vercel-deploy/
+    │       │   │   └── route.js
+    │       │   └── weather_forecast_data/
+    │       │       └── route.js
+    │       ├── globals.css    # Tailwind and global styles
+    │       ├── layout.js      # Global layout
+    │       └── page.js        # Main weather interface
+    ├── .env.local.example
+    ├── next.config.js
+    ├── tailwind.config.js
+    ├── package.json
+    └── README.md
 ```
 
 ## Customization
 
-* **Adding New Backgrounds**: Drop your MP4 files into `public/weather-backgrounds` and update the `WEATHER_BACKGROUNDS` map in `page.jsx`.
-* **Styling Tweaks**: Modify Tailwind classes or extend the config for custom themes.
-* **Data Providers**: Swap out the API logic in `api/reverse_geocode.js` and `api/weather_forecast_data.js` to use different services.
+* **Notification Content**:
+  - Modify `route.js` files in `/api/github-webhook` to:
+    - Change message templates
+    - Add new event handlers
+    - Customize AI-style quotes in `getEllaQuote()`
+
+* **Telegram Integration**:
+  - Adjust parse_mode (HTML/Markdown)
+  - Add inline buttons via `reply_markup`
+  - Modify notification thresholds
+
+* **Webhook Security**:
+  - Add secret validation in route handlers
+  - Implement request signature checking
 
 ## Contributing
 
-1. Fork the repository
-2. Create a new branch: `git checkout -b feature/my-feature`
-3. Commit your changes: `git commit -m "Add my feature"`
-4. Push to the branch: `git push origin feature/my-feature`
-5. Open a Pull Request
+Enhancements particularly welcome for:
+- Additional notification platforms (Slack/Discord)
+- Improved error handling for webhooks
+- Localization support for weather alerts
 
-*Make sure you have the same convention in your project.*
+Follow standard contribution guidelines:
+1. Fork & create feature branch
+2. Commit changes with descriptive messages
+3. Test notification flows
+4. Open PR with documentation updates
 
 ## License
 
@@ -167,11 +196,12 @@ CACHE_TTL=300
 
 ---
 
-> **🌟 Thanks for visiting!**  
-> If this project helped you or you'd like to contribute, feel free to:  
-> - ⭐ **Star the repo** (if you found it useful)  
-> - � **Report issues** (I welcome feedback!)  
-> - 🛠️ **Submit PRs** (Let's build together)  
+> **🚀 Enhanced with Real-time Monitoring**  
+> The system now features proactive monitoring through Telegram:  
+> - Immediate deployment status alerts  
+> - GitHub event tracking  
+> - System health notifications  
 >  
+> *Stay informed wherever you are!*  
 > *Happy coding!* 🚀  
 > — [@devarpanlohar](https://github.com/devarpanlohar)
