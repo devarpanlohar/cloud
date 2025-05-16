@@ -1,5 +1,3 @@
-// api/weather_forecast_data
-
 import { NextResponse } from 'next/server'
 
 export async function GET(request) {

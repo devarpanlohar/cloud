@@ -1,12 +1,25 @@
 import { NextResponse } from "next/server";
 import axios from "axios";
 
-// Utility to generate a JARVIS-style greeting based on time of day
 function getGreeting() {
   const hour = new Date().getHours();
-  if (hour < 12) return "☀️ Good morning, Chief.";
-  if (hour < 18) return "🌤️ Good afternoon, Chief.";
-  return "🌙 Good evening, Chief.";
+  if (hour >= 0 && hour < 4) {
+    return "🌙 Late Night Vibes! Still burning the midnight oil, Chief?";
+  } else if (hour >= 4 && hour < 6) {
+    return "🌅 Early Riser! Dawn's breaking, Chief!";
+  } else if (hour >= 6 && hour < 9) {
+    return "☀️ Good Morning, Chief! Rise and shine!";
+  } else if (hour >= 9 && hour < 12) {
+    return "🌤️ Bright Morning! Making progress, Chief?";
+  } else if (hour >= 12 && hour < 15) {
+    return "⛅ Good Afternoon, Chief! How's the day treating you?";
+  } else if (hour >= 15 && hour < 18) {
+    return "🌥️ Afternoon Glow! Staying strong, Chief!";
+  } else if (hour >= 18 && hour < 21) {
+    return "🌆 Good Evening, Chief! Time to unwind!";
+  } else {
+    return "🌃 Night Owl Hours! Still crushing it, Chief?";
+  }
 }
 
 function getEllaQuote() {
@@ -89,7 +102,7 @@ export async function POST(req) {
         message += `🔍 Please check the payload for more insights, sir.`;
     }
 
-    // Add a classy footer
+    // Classy footer
     message += `\n\n💬 <i>${getEllaQuote()}</i>`;
     message += `\n\n🏠 <b>Repository:</b> <a href="${payload.repository.html_url}">${payload.repository.full_name}</a>`;
     message += `\n\n🕹️ <i>ELLA at your service.</i>`;

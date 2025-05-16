@@ -38,7 +38,7 @@ A sophisticated weather web app with real-time notifications, built with Next.js
 * **Search by Location**: Enter any city or address to fetch current weather and 7-day forecast
 * **Geolocation**: Detect current location with one click for instant weather data
 * **Dynamic Backgrounds**: Full-screen video backgrounds synced with weather conditions
-* **AI-Powered Status**: JARVIS-style greetings and contextual system messages
+* **AI-Powered Status**: AI-style greetings and contextual system messages
 * **Responsive Design**: Mobile-first layout with Tailwind CSS
 * **Cache Management**: Smart cache busting and 1-hour API data revalidation
 
@@ -203,5 +203,6 @@ Follow standard contribution guidelines:
 > - System health notifications  
 >  
 > *Stay informed wherever you are!*  
+> 
 > *Happy coding!* 🚀  
 > — [@devarpanlohar](https://github.com/devarpanlohar)
