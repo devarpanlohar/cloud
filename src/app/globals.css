@@ -36,6 +36,7 @@ body {
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 3px), #000 0);
   animation: l13 1s infinite linear;
 }
+
 @keyframes l13 {
   100% {
     transform: rotate(1turn);
