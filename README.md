@@ -43,7 +43,7 @@ A next-gen weather dashboard with real-time system monitoring, built with Next.j
 Next.js 14 (App Router) | React 18 | Tailwind CSS
 
 **APIs & Services**  
-- Weather API | OpenStreetMap Nominatim  
+- Visual Crossing API | OpenStreetMap Nominatim  
 - Telegram Bot API | GitHub Webhooks  
 - Framer Motion | Lottie Animations  
 
@@ -55,7 +55,7 @@ Vercel Hosting | Edge Network Caching
 ### Prerequisites
 
 - Node.js 18+
-- [Weather API Key](https://www.visualcrossing.com/weather-api/)
+- [Visual Crossing API Key](https://www.visualcrossing.com/weather-api/)
 - Telegram Bot Token ([@BotFather](https://t.me/BotFather))
 
 ### Quick Install
