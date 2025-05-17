@@ -55,7 +55,7 @@ Vercel Hosting | Edge Network Caching
 ### Prerequisites
 
 - Node.js 18+
-- [Weather API Key](https://www.weatherapi.com/)
+- [Weather API Key](https://www.visualcrossing.com/weather-api/)
 - Telegram Bot Token ([@BotFather](https://t.me/BotFather))
 
 ### Quick Install
