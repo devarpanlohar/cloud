@@ -1,6 +1,6 @@
 <p align="center">
   <img 
-    src="https://capsule-render.vercel.app/api?type=soft&height=300&color=gradient&text=cloud&reversal=true&textBg=false&desc=Cloud:%20A%20stylish%20weather%20app%20with%20live%20forecasts%20and%20dynamic%20backgrounds.&fontAlignY=45&descAlignY=62"
+    src="https://capsule-render.vercel.app/api?type=venom&height=300&color=gradient&text=cloud&reversal=true&textBg=false&desc=Cloud:%20A%20stylish%20weather%20app%20with%20live%20forecasts%20and%20dynamic%20backgrounds.&fontAlignY=40&descAlignY=62&fontSize=100&descSize=25"
     alt="Cloud Weather Web App Banner"
     style="max-width: 100%; height: auto;"
   />
